@@ -1,0 +1,64 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+
+    namespace 'com.gaincity.alexa_google_bind'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        manifestPlaceholders = [
+                TUYA_SMART_APPKEY           : "${properties.getProperty("appKey")}",
+                TUYA_SMART_SECRET           : "${properties.getProperty("appSecret")}",
+                APP_SCHEME_NAME             : "${properties.getProperty("app_scheme", "dev")}",
+                INTERNAL_HOST               : "${properties.getProperty("app_scheme", "dev")}".concat('.app.tuya.com'),
+                ALEXA_AUTH_INTERNAL_HOST    : "${properties.getProperty("app_scheme", "dev")}".concat('.applink.smart321.com'),
+                ALEXA_AUTH_INTERNAL_HOST_NEW: "${properties.getProperty("app_scheme", "dev")}".toLowerCase(Locale.ENGLISH).concat('.applink.smart321.com'),
+                PACKAGE_NAME                : 'com.gaincity.gc_smart_life_app'
+        ]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'com.thingclips.smart:thingsmart:5.17.0'
+
+    api enforcedPlatform("com.thingclips.smart:thingsmart-BizBundlesBom:5.17.0"){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+
+    api ("com.thingclips.smart:thingsmart-bizbundle-amazon_google_bind"){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

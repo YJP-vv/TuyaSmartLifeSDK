@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/btm_nav_home">
+
+    <fragment
+        android:id="@+id/btm_nav_home"
+        android:name="com.gaincity.gc_smart_life_app.homeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_home">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/btm_nav_scene"
+        android:name="com.gaincity.gc_smart_life_app.SceneFragment"
+        android:label=""
+        tools:layout="@layout/fragment_scene">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/btm_nav_mall"
+        android:name="com.gaincity.gc_smart_life_app.MallFragment"
+        android:label=""
+        tools:layout="@layout/fragment_mall">
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/btm_nav_me"
+        android:name="com.gaincity.gc_smart_life_app.MeFragment"
+        android:label=""
+        tools:layout="@layout/fragment_me">
+
+
+    </fragment>
+</navigation>

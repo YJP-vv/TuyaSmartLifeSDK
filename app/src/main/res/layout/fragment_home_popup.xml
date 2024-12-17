@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/popup_background"
+    android:padding="10dp"
+    android:elevation="8dp">
+
+    <Button
+        android:id="@+id/configButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_add_home_work_24"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:text="Add Device"
+        />
+    <Button
+        android:id="@+id/createScene"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_post_add_24"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:text="Create Scene" />
+
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_qr_code_scanner_24"
+        android:drawablePadding="8dp"
+        android:padding="10dp"
+        android:text="Scan" />
+
+    <TextView
+        android:id="@+id/popup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is a dropdown box."
+        android:textSize="16sp"
+        android:paddingTop="10dp" />
+</LinearLayout>
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="16dp"-->
+<!--    android:background="@color/white">-->
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/configButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:padding="12dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/baseline_add_home_work_24"-->
+<!--            android:contentDescription="Icon 1" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:text="Add Device"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="@color/black" />-->
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/createScene"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:padding="12dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/baseline_post_add_24"-->
+<!--            android:contentDescription="Icon 2" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:text="Create Scene"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="@color/black" />-->
+<!--    </LinearLayout>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/scanButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:padding="12dp"-->
+<!--        android:background="@color/white"-->
+<!--        android:clickable="true"-->
+<!--        android:focusable="true">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="24dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:src="@drawable/baseline_qr_code_scanner_24"-->
+<!--            android:contentDescription="Icon 3" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:text="Scan"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textColor="@color/black" />-->
+<!--    </LinearLayout>-->
+
+<!--</LinearLayout>-->

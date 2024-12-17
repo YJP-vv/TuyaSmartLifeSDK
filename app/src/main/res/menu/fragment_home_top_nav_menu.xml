@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/ipc_voice_speaker"
+        android:icon="@drawable/baseline_keyboard_voice_24"
+        android:id="@+id/toolbar_nav_voice"
+        app:showAsAction="ifRoom" />
+    <item android:title="@string/add"
+        android:icon="@drawable/baseline_add_24"
+        android:id="@+id/toolbar_nav_add"
+        app:showAsAction="always"/>
+
+</menu>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:name="com.gaincity.ThingSmartApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="false"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme"
+        tools:targetApi="31">
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false"
+/>
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+ />
+
+        <meta-data
+            android:name="THING_SMART_APPKEY"
+            android:value="8dqd4kkrajd5pfutes4p" />
+        <meta-data
+            android:name="THING_SMART_SECRET"
+            android:value="efrfnfass4wyut5rsr8ujsyp5cmkv75h" />
+<!--        <data android:host="${INTERNAL_HOST}" />-->
+<!--        <data android:host="${ALEXA_AUTH_INTERNAL_HOST}" />-->
+<!--        <data android:host="${ALEXA_AUTH_INTERNAL_HOST_NEW}" />-->
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|screenLayout|density|layoutDirection|fontScale|screenSize|smallestScreenSize"
+            android:exported="true"
+>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".User_LoginActivity"
+            android:exported="false"
+ />
+        <activity
+            android:name=".User_RegisterActivity"
+            android:exported="false"
+ />
+
+
+    </application>
+
+</manifest>

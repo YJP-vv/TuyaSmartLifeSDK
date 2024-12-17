@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gaincity.alexa_google_bind" >
+
+    <uses-sdk android:minSdkVersion="24" />
+
+    <application>
+        <activity
+            android:name="com.gaincity.alexa_google_bind.AlexaGoogleBindActivity"
+            android:exported="true"
+            android:theme="@style/Theme.GCSmartApp" >
+            <!-- Intent filter with data -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="${INTERNAL_HOST}"
+                    android:scheme="${APP_SCHEME_NAME}" />
+                <data
+                    android:host="${ALEXA_AUTH_INTERNAL_HOST}"
+                    android:scheme="${APP_SCHEME_NAME}" />
+                <data
+                    android:host="${ALEXA_AUTH_INTERNAL_HOST_NEW}"
+                    android:scheme="${APP_SCHEME_NAME}" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

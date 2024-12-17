@@ -1,0 +1,108 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace 'com.gaincity.gc_smart_life_app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.gaincity.gc_smart_life_app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        manifestPlaceholders = [
+                TUYA_SMART_APPKEY           : "${properties.getProperty("appKey")}",
+                TUYA_SMART_SECRET           : "${properties.getProperty("appSecret")}",
+                APP_SCHEME_NAME             : "${properties.getProperty("app_scheme", "dev")}",
+                INTERNAL_HOST               : "${properties.getProperty("app_scheme", "dev")}".concat('.app.tuya.com'),
+                ALEXA_AUTH_INTERNAL_HOST    : "${properties.getProperty("app_scheme", "dev")}".concat('.applink.smart321.com'),
+                ALEXA_AUTH_INTERNAL_HOST_NEW: "${properties.getProperty("app_scheme", "dev")}".toLowerCase(Locale.ENGLISH).concat('.applink.smart321.com'),
+                PACKAGE_NAME                : applicationId
+        ]
+
+
+    }
+    packagingOptions {
+        pickFirst 'lib/*/liblog.so'
+        pickFirst 'lib/*/libc++_shared.so'
+        pickFirst 'lib/*/libyuv.so'
+        pickFirst 'lib/*/libopenh264.so'
+        pickFirst 'lib/*/libv8wrapper.so'
+        pickFirst 'lib/*/libv8android.so'
+//        pickFirst 'lib/*/libc++_shared.so' // An Android Archive (AAR) file contains an Android library. If the .so file exists in multiple AAR files, select the first AAR file.
+    }
+    lintOptions {
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+configurations.all {
+    exclude group: "com.thingclips.smart" ,module: 'thingsmart-modularCampAnno'
+}
+dependencies {
+
+    implementation project(path: ':feedback')
+    implementation project(path: ':activator')
+    implementation project(path: ':alexa_google_bind')
+    implementation project(path: ':family')
+
+
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation 'com.alibaba:fastjson:1.1.67.android'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.14.9'
+    implementation libs.cardview
+    // The latest stable App SDK for Android.
+    implementation 'com.facebook.soloader:soloader:0.10.4'
+    implementation 'com.thingclips.smart:thingsmart:5.17.0'
+    implementation "androidx.multidex:multidex:2.0.1"
+
+//    implementation "com.thingclips.smart:thingsmart-pack-config:5.17.0"
+    api enforcedPlatform("com.thingclips.smart:thingsmart-BizBundlesBom:5.17.0"){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+    implementation ('com.thingclips.smart:thingsmart-bizbundle-family'){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+    implementation ('com.thingclips.smart:thingsmart-bizbundle-panelmore'){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation ('com.hbb20:ccp:2.6.0'){
+        exclude group: 'commons-io', module: 'commons-io'
+    }
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.core.ktx
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
